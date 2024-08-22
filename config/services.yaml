@@ -32,5 +32,6 @@ services:
     App\Context\TimeBasedChannelContext:
         arguments:
             - '@sylius.repository.channel'
+            - '@App\DateTime\Clock'
         tags:
             - { name: sylius.context.channel, priority: 1000 }
