@@ -1,7 +1,17 @@
 sylius_admin:
     resource: "@SyliusAdminBundle/Resources/config/routing.yml"
-    prefix: '/%sylius_admin.path_name%'
+    prefix: /admin
 
 sylius_paypal_admin:
     resource: "@SyliusPayPalPlugin/Resources/config/admin_routing.yml"
     prefix: '/%sylius_admin.path_name%'
+    
+app_supplier:
+    resource: |
+        alias: app.supplier
+        except: ['show']
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        grid: app_admin_supplier
+    type: sylius.resource
+    prefix: /admin
