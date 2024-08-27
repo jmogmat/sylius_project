@@ -1,0 +1,8 @@
+sylius_mailer:
+    sender:
+        name: MatiasXilon admin
+        address: matias.xilon@gmail.com
+    emails:
+        app_supplier_trusted:
+            subject: "You've been trusted!"
+            template: "Supplier/Email/supplierTrusted.html.twig"
