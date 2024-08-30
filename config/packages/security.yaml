@@ -1,3 +1,7 @@
+parameters:
+    sylius.security.admin_regex: "^/admin"
+    sylius.security.api_regex: "^/api"
+    sylius.security.shop_regex: "^/(?!admin|api/.*|api$|media/.*)[^/]++"
 security:
     enable_authenticator_manager: true
     providers:
@@ -63,7 +67,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
             jwt: true
-
+   
         shop:
             switch_user: { role: ROLE_ALLOWED_TO_SWITCH }
             context: shop

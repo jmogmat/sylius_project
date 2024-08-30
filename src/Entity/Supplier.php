@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +41,12 @@ class Supplier implements SupplierInterface
      */
     private $state = self::STATE_NEW;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\Product\Product", mappedBy="supplier")
+     */
+    private $products;
     public function getId(): ?int
     {
         return $this->id;
@@ -73,6 +80,16 @@ class Supplier implements SupplierInterface
     public function setState(string $state): void
     {
         $this->state = $state;
+    }
+
+    public function getProducts(): ArrayCollection
+    {
+        return $this->products;
+    }
+
+    public function setProducts(ArrayCollection $products): void
+    {
+        $this->products = $products;
     }
 
 
